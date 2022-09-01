@@ -43,31 +43,29 @@
             <div class="col-md-8 col-xs-12">
                 <div class="col" style="margin-top:3%; text-align:justify;">
 					             <p>Hello!</p>
-                       <p>I am a machine learning researcher. Since 2017, I have been working on some theoretical aspects of deep learning.</p>
+                       <p>I am a machine learning researcher. Since 2017, I have been working on some theoretical aspects of deep learning (DL).</p>
 
                        <p>I received my PhD (Dr. rer. nat) from Department of Mathematics and Computer Science at Saarland University in 2019,
                          where I work with <a href="https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/maschinelles-lernen/team/prof-dr-matthias-hein/" target="_blank">Matthias Hein</a>.
-                         Prior to that, I did my undergrad at Vietnam National University Hanoi, and my master at Saarland University through the support of <a href="https://www.imprs-cs.de" target="_blank">IMPRS-CS</a> in Saarbrucken where I obtained my MSc degree in 2015.
-                         After my PhD, I went to <a href="https://www.mis.mpg.de">MPI-MIS</a> for a Postdoc, working in the group of <a href="http://www.math.ucla.edu/~montufar/" target="_blank">Guido Montufar</a>.
-                         Beside these appointments, I also worked at TU Kaiserslauter, and at DFKI (German Center for Artificial Intelligence) as a senior researcher.
+                         Prior to that, I did my undergrad at Vietnam National University Hanoi, and my master at Saarland University through the support of the <a href="https://www.imprs-cs.de" target="_blank">International Max-Planck Research School for Computer Science (IMPRS-CS)</a>.
+                         I have done some international traves during my PhD: I was one of the research fellows at the Simons Institue in Berkeley in 2019 where I participated in the program <a href="https://simons.berkeley.edu/programs/dl2019" target="_blank">Foundation of deep learning</a>,
+                         attending a workshop on deep learning at IST Austria, and giving an invited talk at Microsoft Research Redmond.
+                         After finishing my PhD, I went to <a href="https://www.mis.mpg.de">MPI-MIS</a> for a Postdoc, working in the group of <a href="http://www.math.ucla.edu/~montufar/" target="_blank">Guido Montufar</a> on machine learning theory.
+                         Beside these appointments, I have spent some time working at TU Kaiserslauter, and DFKI (German Center for Artificial Intelligence).
                        </p>
 
-                       <p>I was one of the research fellows at Simons-Berkeley Institute in 2019, where I participated in the program <a href="https://simons.berkeley.edu/programs/dl2019" target="_blank">Foundation of deep learning</a>.
-                         In the same year, I visited a workshop on deep learning theory at IST Austria.
-                       </p>
-
-                       <p>Lately, I have been thinking about implicit bias in deep learning. Please feel free to reach out if you want to collaborate. </p>
+                       <p>Lately, I have been thinking about NTK and optimization bias. Please feel free to reach out if you want to chat. </p>
                 </div>
                 <div class="col" style="text-align:justify">
                     <h2 id="publications">Publications</h2>
-                    <p>I am broadly interested in machine learning and all kinds of mathematics.</p>
-                      <p>Since 2015, I have been inspired by several breakthroughs in artificial neural networks.
-                        This motivated me to explore the principles underlying deep learning.
-                        Unlike kernel methods which have a strong mathematical analysis,
-                        the mathematical understanding of deep learning is still very limited.
-                        There are many interesting phenomena that can be empirically observed in deep learning but lack theoretical explanations.
-                        Building deeper theoretical insights into these phenomena could help to make deep learning become a more rigorous discipline,
-                        design better algorithms, and transform it into a more robust and reliable technology.
+                    <p>I am broadly interested in machine learning and mathematics.</p>
+                      <p>I got inspired by the huge empirical successes of neural networks since 2015.
+                        This led me to explore the mathematical principles underlying deep learning.
+                        Unlike the classical kernel methods which have a strong mathematical analysis,
+                        the mathematical understanding of deep learning is still quite limited.
+                        There are many interesting phenomena that have been empirically observed in deep learning but lack theoretical explanations.
+                        Building deeper theoretical insight into these phenomena could help to make deep learning become a more rigorous discipline,
+                        to design better algorithms, and make it become a more robust/reliable technology.
                         My work so far has been motivated by the following questions:
                       <ul>
                         <li>Why a big network trained on a small labeled dataset does not seem to have over-fitting?</li>
@@ -75,122 +73,168 @@
                         <li>What is the geometry of the optimization landscape in deep learning?</li>
                       </ul>
                       </p>
-                    <p>There are no satisfying answers to these questions so far.
-                      However, many interesting progress have been made recently.
-                      Below are some of my contributions to these topics.
+                    <p>There seem to be no fully satisfying answers to these questions to date.
+                      However, many interesting developments have been made in the past few years to deepen our understanding.
+                      I made some contributions to that.
                     </p>
 
 
 
                     <h3>Provable guarantees for training neural networks</h3>
 
-                    <p><b>
-                    <a href="https://arxiv.org/abs/2101.09612" target="_blank">On the Proof of Global Convergence of Gradient Descent for Deep ReLU Networks with Linear Widths</a></b><br>
+                    <ul>
+                    <li>
+                    <b><a href="https://arxiv.org/abs/2101.09612" target="_blank">On the Proof of Global Convergence of Gradient Descent for Deep ReLU Networks with Linear Widths</a></b><br>
                     <b>Quynh Nguyen</b>. ICML 2021
-                    </p>
-                    <p></p>
+                    <p>This article provides a short proof for the global convergence of GD in training deep ReLU networks.
+                    For arbitrary labels, it is shown that a linear, quadratic or cubic width suffices to prove the result (depending on the initilization).</p>
+                    </li>
 
-                    <p><b>
-                    <a href="https://arxiv.org/abs/2002.07867" target="_blank">Global Convergence of Deep Networks with One Wide Layer Followed by Pyramidal Topology</a></b><br>
+                    <li>
+                      <b><a href="https://arxiv.org/abs/2002.07867" target="_blank">Global Convergence of Deep Networks with One Wide Layer Followed by Pyramidal Topology</a></b><br>
                     <b>Quynh Nguyen</b> and Marco Mondelli. ICML 2020
+                    <p>Earlier works showed that gradient descent (GD) can find a global solution
+                      when all the hidden layers are polynomially wide.
+                    However this condition makes neural networks operate in a kernel regime.
+                    This article shows that global convergence can be proved for deep pyramidal nets -- a much more empirically relevant architecture
+                    where only the first hidden layer needs to be wide and the remaning layers can have constant and non-increasing widths.
+                    In this pyramidal setting, GD provably learns the features, and thus training goes beyond the NTK regime.
                     </p>
-                    <p></p>
+                    </li>
 
-                    <p><b>
-                    <a href="https://arxiv.org/abs/1610.09300" target="_blank">Globally Optimal Training of Generalized Polynomial Neural Networks with Nonlinear Spectral Methods</a></b><br>
+                    <li>
+                    <b><a href="https://arxiv.org/abs/1610.09300" target="_blank">Globally Optimal Training of Generalized Polynomial Neural Networks with Nonlinear Spectral Methods</a></b><br>
                     Antoine Gautier, <b>Quynh Nguyen</b> and Matthias Hein. NIPS 2016
-                    </p>
-                    <p></p><br>
+                    <p>We cast the optimization problem of a polynomial network as a nonlinear eigenvalue problem.
+                    We study the uniqueness and global optimality of the solution, and propose a generalized power method to solve it.</p>
+                    </li>
+                    </ul>
 
 
 
                     <h3>Loss surface, optimization landscape, sublevel sets</h3>
-                    <p><b>
-                    <a href="https://arxiv.org/abs/2101.08576" target="_blank">A Note on Connectivity of Sublevel Sets in Deep Learning</a></b><br>
+
+                    <ul>
+                    <li>
+                    <b><a href="https://arxiv.org/abs/2101.08576" target="_blank">A Note on Connectivity of Sublevel Sets in Deep Learning</a></b><br>
                     <b>Quynh Nguyen</b>. Technical note, 2021
+                    <p>For shallow networks, it is shown that having N+1 hidden neurons is both necessary and sufficient for the training loss function of neural networks to have connected sublevel sets.
+                    For deeper architecture, this condition is shown to be sufficient.
+                    However, whether it is necessary or not for multilayer networks is still an open problem.
                     </p>
-                    <p></p>
+                    </li>
 
-                    <p><b>
-                    <a href="https://arxiv.org/abs/2102.09671" target="_blank">When Are Solutions Connected in Deep Networks?</a></b><br>
+
+                    <li>
+                    <b><a href="https://arxiv.org/abs/2102.09671" target="_blank">When Are Solutions Connected in Deep Networks?</a></b><br>
                     <b>Quynh Nguyen</b>, Pierre Brechet and Marco Mondelli. NeurIPS 2021
-                    </p>
-                    <p></p>
+                    <p>This article gives a condition for which certain points in parameter space
+                    can be connected by a continuous path along which there are no barriers or jumps in the loss landscape.
+                    This sounds similar to results on connected sublevel sets, but it is weaker in the sense that the connectivity is only shown for a subset of solutions.
+                    At the same time, the requirement on over-parameterization is also weaker.
+                    Empirically, it is found that the provided condition can capture well the mode connectivity phenomenon concerning SGD solutions in deep learning.
+                   </p>
+                    </li>
 
-                    <p><b>
-                    <a href="https://arxiv.org/abs/1901.07417" target="_blank">On Connected Sublevel Sets in Deep Learning</a></b><br>
+                    <li><b><a href="https://arxiv.org/abs/1901.07417" target="_blank">On Connected Sublevel Sets in Deep Learning</a></b><br>
                     <b>Quynh Nguyen</b>. ICML 2019
-                    </p>
-                    <p></p>
+                    <p>This article proves the connectivity of sublevel sets of the loss function of deep pyramidal networks.</p>
+                    </li>
 
-                    <p><b>
-                    <a href="https://arxiv.org/abs/1809.10749" target="_blank">On the Loss Landscape of a Class of Deep Neural Networks with No Bad Local Valleys</a></b><br>
+                    <li>
+                    <b><a href="https://arxiv.org/abs/1809.10749" target="_blank">On the Loss Landscape of a Class of Deep Neural Networks with No Bad Local Valleys</a></b><br>
                     <b>Quynh Nguyen</b>, Mahesh Chandra Mukkamala and Matthias Hein. ICLR 2019
+                    <p>Consider neural networks as a directed acyclic graph, this article shows that the loss function has no spurious valleys as long as there are enough skip-connections from lower layers to the output layer.
+                      Empirically, it is shown that adding random skip-connections from lower layers to the output
+                    can remove not only spurious valleys but also vanishing gradient issues,
+                     which makes the training of very deep networks much more stable and efficient.
                     </p>
-                    <p></p>
+                    </li>
 
-                    <p><b>
-                    <a href="https://arxiv.org/abs/1803.00094" target="_blank">Neural Networks Should Be Wide Enough to Learn Disconnected Decision Regions</a></b><br>
+                    <li>
+                    <b><a href="https://arxiv.org/abs/1803.00094" target="_blank">Neural Networks Should Be Wide Enough to Learn Disconnected Decision Regions</a></b><br>
                     <b>Quynh Nguyen</b>, Mahesh Mukkamala and Matthias Hein. ICML 2018
-                    </p>
-                    <p></p>
+                    <p>In order for neural networks to learn disconnected decision regions in the input space, at least one of the hidden layers should have more neurons than the input dimension.</p>
+                    </li>
 
-                    <p><b>
-                    <a href="https://arxiv.org/abs/1710.10928" target="_blank">Optimization Landscape and Expressivity of Deep CNNs</a></b><br>
+                    <li>
+                    <b><a href="https://arxiv.org/abs/1710.10928" target="_blank">Optimization Landscape and Expressivity of Deep CNNs</a></b><br>
                     <b>Quynh Nguyen</b> and Matthias Hein. ICML 2018
-                    </p>
-                    <p></p>
+                    <p>
+                      This article shows that a standard convolutional layer suffices to memorize any N samples as long as the number of parameters exceeds N.
+                      It also provides a condition for global optimality of critical points in deep CNNs.</p>
+                    </li>
 
-                    <p><b>
-                    <a href="https://arxiv.org/abs/1704.08045" target="_blank">The Loss Surface of Deep and Wide Neural Networks</a></b><br>
+                    <li>
+                    <b><a href="https://arxiv.org/abs/1704.08045" target="_blank">The Loss Surface of Deep and Wide Neural Networks</a></b><br>
                     <b>Quynh Nguyen</b> and Matthias Hein. ICML 2017
-                    </p>
-                    <p></p><br>
+                    <p>This article studies the global optimality of local minima for deep nonlinear networks.
+                    The proof exploits Implicit Function Theorem to characterize the optimality of local minima in terms of their non-degenerate conditions.
+                  </p>
+                    </li>
+
+                    </ul>
 
 
 
                     <h3>Neural tangent kernel</h3>
-                    <p><b>
-                    <a href="https://arxiv.org/abs/2012.11654" target="_blank">Tight Bounds on the Smallest Eigenvalue of the Neural Tangent Kernel for Deep ReLU Networks</a></b><br>
+
+                    <ul>
+                    <li>
+                    <b><a href="https://arxiv.org/abs/2012.11654" target="_blank">Tight Bounds on the Smallest Eigenvalue of the Neural Tangent Kernel for Deep ReLU Networks</a></b><br>
                     <b>Quynh Nguyen</b>, Marco Mondelli and Guido Montufar. ICML 2021
+                    </li>
+                    <p>
+                      The spectrum of the NTK has found applications in proving memorization capacity, convergence of GD and generalization bounds in certain regimes.
+                      This article provides tight lower bounds on the smallest eigenvalue of the NTK matrix for Gaussian weights,
+                      both in the limit of infinitely wide networks, and for finite-width networks.
                     </p>
-                    <p></p><br>
+                    </ul>
 
 
                     <h3>Initialization of deep networks</h3>
-                    <p><b>
-                    <a href="https://arxiv.org/abs/2101.12017" target="_blank">A Fully Rigorous Proof of the Derivation of Xavier and He's Initialization for Deep ReLU Networks</a></b><br>
+                    <ul>
+                    <li>
+                    <b><a href="https://arxiv.org/abs/2101.12017" target="_blank">A Fully Rigorous Proof of the Derivation of Xavier and He's Initialization for Deep ReLU Networks</a></b><br>
                     <b>Quynh Nguyen</b>. Technical note, 2021
-                    </p>
-                    <p></p><br>
+                    </li>
+                    <p>He's and LeCun's initialization are very popular methods for initializing neural network weights in deep learning.
+                    However, the formulas of these initializations in the original papers have been only derived under the assumption that all the hidden neurons are somewhat independent
+                    -- a condition known to be satisfied only for infinitely wide networks.
+                    This article provides a rigorous derivation for the case of networks with flinite abeit large widths.</p>
+                    </ul>
 
 
                     <h3>Nonconvex optimization</h3>
-                    <p><b>
-                    <a href="https://www.ml.uni-saarland.de/Publications/NgGauHei-OPT2016.pdf" target="_blank">Nonlinear Spectral Methods for Nonconvex Optimization with Global Optimality</a></b><br>
+                    <ul>
+                    <li>
+                    <b><a href="https://www.ml.uni-saarland.de/Publications/NgGauHei-OPT2016.pdf" target="_blank">Nonlinear Spectral Methods for Nonconvex Optimization with Global Optimality</a></b><br>
                     <b>Quynh Nguyen</b>, Antoine Gautier and Matthias hein. NIPS Workshop on Optimization, 2016
-                    </p>
-                    <p></p><br>
+                    <p>This extends our NIPS'16 paper on polynomial networks to more general optimization problems.</p>
+                    </li>
+                    </ul>
 
 
                     <h3>Computer vision</h3>
-                    <p><b>
-                    <a href="https://arxiv.org/abs/1511.02667" target="_blank">An Efficient Multilinear Optimization Framework for Hypergraph Matching</a></b><br>
+                    <ul>
+                    <li>
+                    <b><a href="https://arxiv.org/abs/1511.02667" target="_blank">An Efficient Multilinear Optimization Framework for Hypergraph Matching</a></b><br>
                     <b>Quynh nguyen</b>, Francesco Tudisco, Antoine Gautier and Matthias Hein. T-PAMI 2017
-                    </p>
-                    <p></p>
+                    <p>This is an extension of our CVPR paper on hypergraph matching.</p>
+                    </li>
 
-                    <p><b>
-                    <a href="https://arxiv.org/abs/1504.07907" target="_blank">A Flexible Tensor Block Coordinate Ascent Scheme for Hypergraph Matching</a></b><br>
+                    <li>
+                    <b><a href="https://arxiv.org/abs/1504.07907" target="_blank">A Flexible Tensor Block Coordinate Ascent Scheme for Hypergraph Matching</a></b><br>
                     <b>Quynh Nguyen</b>, Antoine Gautier and Matthias Hein. CVPR 2015
-                    </p>
-                    <p></p>
+                    <p>This article studies hypergraph matching through the lens of multilinear optimization.</p>
+                    </li>
 
-                    <p><b>
-                    <a href="https://openaccess.thecvf.com/content_cvpr_2016/papers/Xian_Latent_Embeddings_for_CVPR_2016_paper.pdf" target="_blank">Latent Embeddings for Zero-shot Classification</a></b><br>
+                    <li>
+                    <b><a href="https://openaccess.thecvf.com/content_cvpr_2016/papers/Xian_Latent_Embeddings_for_CVPR_2016_paper.pdf" target="_blank">Latent Embeddings for Zero-shot Classification</a></b><br>
                     Yongqin Xian, Zeynep Akata, Gaurav Sharma, <b>Quynh Nguyen</b>, Matthias Hein and Bernt Schiele. CVPR 2016
-                    </p>
-                    <p></p><br>
+                    </li>
+                    <p>This article proposes a model for learning the compatibility of data and class embeddings for zero shot leanring.</p>
+                    </ul>
 
 
                 </div>
